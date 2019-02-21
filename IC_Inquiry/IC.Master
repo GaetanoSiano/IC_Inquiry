@@ -1,0 +1,165 @@
+﻿<%@ Master Language="VB" AutoEventWireup="false" CodeBehind="IC.master.vb" Inherits="IC_Inquiry.IC" %>
+
+
+<!DOCTYPE html>
+
+<html>
+<head runat="server">
+    <title></title>
+
+    <link href="Content/bootstrap.min.css" rel="stylesheet" />
+
+    <style>
+        body {
+            background: #EBEDEF;
+            color: #000;
+            margin-top: 20px;
+            margin-left: 10px;
+            overflow: hidden;
+            font: 400 12px Arial,Helvetica,sans-serif;
+        }
+    </style>
+    <script src="Scripts/ICInquiry.js"></script>
+
+    <asp:ContentPlaceHolder ID="head" runat="server">
+    </asp:ContentPlaceHolder>
+</head>
+<body>
+    <form id="form1" runat="server">
+        <div >
+
+            <div class="row">
+                <div class="col-md-auto">
+                    <dx:ASPxLabel ID="MyPageTitle" runat="server" Text="Page" Theme="MaterialCompact" Font-Bold="True" Font-Size="X-Large"></dx:ASPxLabel>
+                </div>
+                <div class="col-md-auto">
+                    <dx:ASPxMenu ID="ASPxMenu1" runat="server" SyncSelectionMode="CurrentPath" Theme="MaterialCompact">
+                        <Items>
+                            <dx:MenuItem Text="I/C" Name="IC" BeginGroup="True" DropDownMode="True" GroupName="IC" ToolTip="Inventory Control">
+                                <Items>
+                                    <dx:MenuItem Name="IC_Items" NavigateUrl="~/IC_Items.aspx" Text="IC Items" Visible="False">
+                                    </dx:MenuItem>
+                                    <dx:MenuItem Name="IC_Price" NavigateUrl="~/IC_PriceCost.aspx" Text="IC Price" Visible="False">
+                                    </dx:MenuItem>
+                                    <dx:MenuItem Name="IC_History" NavigateUrl="~/IC_Hist.aspx" Text="IC History" Visible="False">
+                                    </dx:MenuItem>
+                                    <dx:MenuItem Name="IC_SN" NavigateUrl="~/IC_SN.aspx" Text="IC Serial Nos" Visible="False">
+                                    </dx:MenuItem>
+                                </Items>
+                            </dx:MenuItem>
+                            <dx:MenuItem Text="O/E" Name="OE" BeginGroup="True" DropDownMode="True" ToolTip="Order Entry">
+                                <Items>
+                                    <dx:MenuItem NavigateUrl="~/OE_Orders.aspx" Text="Orders">
+                                    </dx:MenuItem>
+                                    <dx:MenuItem NavigateUrl="~/OE_Hist.aspx" Text="Sales History">
+                                    </dx:MenuItem>
+                                </Items>
+                            </dx:MenuItem>
+                        </Items>
+                    </dx:ASPxMenu>
+                &nbsp;</div>
+                <div class="col-md-auto">
+                    <dx:ASPxComboBox ID="ASPxComboBox1" runat="server" Theme="MaterialCompact" Width="450px" ClientInstanceName="profile" TextField="LayoutName" ValueField="ID" ValueType="System.Int32" TextFormatString="{1}" Caption="Profile:">
+                        <ClientSideEvents ButtonClick="onButtonClick" SelectedIndexChanged="onSelectedIndexChanged" KeyUp="function(s, e) {
+	onDelete(s,e);
+}" />
+                        <Columns>
+                            <dx:ListBoxColumn FieldName="ID" Width="0px">
+                            </dx:ListBoxColumn>
+                            <dx:ListBoxColumn FieldName="LayoutName">
+                            </dx:ListBoxColumn>
+                        </Columns>
+                        <DropDownButton Width="50px">
+                        </DropDownButton>
+                        <Buttons>
+                            <dx:EditButton ToolTip="Create new profile from current layout">
+                                <Image IconID="data_addnewdatasource_16x16gray">
+                                </Image>
+                            </dx:EditButton>
+                            <dx:EditButton ToolTip="Update current profile from current layout">
+                                <Image IconID="data_editdatasource_16x16gray">
+                                </Image>
+                            </dx:EditButton>
+                            <dx:EditButton ToolTip="Delete current profile">
+                                <Image IconID="data_deletedatasource_16x16gray">
+                                </Image>
+                            </dx:EditButton>
+                        </Buttons>
+                        <ClearButton DisplayMode="Always">
+                        </ClearButton>
+                    </dx:ASPxComboBox>
+
+                    <asp:LinqDataSource ID="LinqDataSource1" runat="server" EntityTypeName="" ContextTypeName="IC_Inquiry.CRMXEntities" TableName="UserGridLayouts">
+                    </asp:LinqDataSource>
+                </div>
+            </div>
+        </div>
+
+        <div>
+            <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
+            </asp:ContentPlaceHolder>
+        </div>
+        <script type="text/javascript">
+
+            ASPxClientControl.GetControlCollection().ControlsInitialized.AddHandler(function (s, e) {
+                UpdateGridHeight();
+            });
+
+            ASPxClientControl.GetControlCollection().BrowserWindowResized.AddHandler(function (s, e) {
+                UpdateGridHeight();
+            });
+
+        </script>
+        <dx:ASPxPopupControl ID="ASPxPopupControl1" runat="server" Height="126px" Width="322px" ClientInstanceName="popup" Modal="True" Theme="MaterialCompact" HeaderText="Layout" PopupHorizontalAlign="WindowCenter" PopupVerticalAlign="WindowCenter">
+            <SettingsAdaptivity VerticalAlign="WindowCenter" />
+            <ContentCollection>
+                <dx:PopupControlContentControl runat="server">
+                    <dx:ASPxFormLayout ID="ASPxFormLayout1" runat="server">
+                        <Items>
+                            <dx:LayoutItem Caption="Layout Name">
+                                <LayoutItemNestedControlCollection>
+                                    <dx:LayoutItemNestedControlContainer runat="server">
+                                        <dx:ASPxTextBox ID="txtLayoutName" runat="server" ClientInstanceName="layoutName">
+                                        </dx:ASPxTextBox>
+                                    </dx:LayoutItemNestedControlContainer>
+                                </LayoutItemNestedControlCollection>
+                            </dx:LayoutItem>
+                            <dx:LayoutItem Caption="" ShowCaption="False">
+                                <LayoutItemNestedControlCollection>
+                                    <dx:LayoutItemNestedControlContainer runat="server">
+                                        <dx:ASPxButton ID="btnAdd" runat="server" ClientInstanceName="btnAdd" AutoPostBack="True" UseSubmitBehavior="True" ClientSideEvents-Click="onAddClick" Text="Add">
+                                            <ClientSideEvents Click="onAddClick"></ClientSideEvents>
+                                        </dx:ASPxButton>
+                                    </dx:LayoutItemNestedControlContainer>
+                                </LayoutItemNestedControlCollection>
+                            </dx:LayoutItem>
+                            <dx:LayoutItem Caption="" ShowCaption="False">
+                                <LayoutItemNestedControlCollection>
+                                    <dx:LayoutItemNestedControlContainer runat="server">
+                                        <dx:ASPxButton ID="btnUpdate" runat="server" Text="Update" ClientInstanceName="btnUpdate">
+                                            <ClientSideEvents Click="onUpdateClick" />
+                                        </dx:ASPxButton>
+                                    </dx:LayoutItemNestedControlContainer>
+                                </LayoutItemNestedControlCollection>
+                            </dx:LayoutItem>
+                            <dx:LayoutItem Caption="" ShowCaption="False">
+                                <LayoutItemNestedControlCollection>
+                                    <dx:LayoutItemNestedControlContainer runat="server">
+                                        <dx:ASPxButton ID="btnDelete" runat="server" Text="Delete" ClientInstanceName="btnDelete">
+                                            <ClientSideEvents Click="onDeleteClick" />
+                                        </dx:ASPxButton>
+                                    </dx:LayoutItemNestedControlContainer>
+                                </LayoutItemNestedControlCollection>
+                            </dx:LayoutItem>
+                        </Items>
+                    </dx:ASPxFormLayout>
+                </dx:PopupControlContentControl>
+            </ContentCollection>
+        </dx:ASPxPopupControl>
+        <dx:ASPxTimer ID="ASPxTimer1" runat="server" Interval="600000">
+        </dx:ASPxTimer>
+        <dx:ASPxCallback ID="layoutCallback" runat="server" ClientInstanceName="layoutCallback">
+        </dx:ASPxCallback>
+    </form>
+</body>
+</html>

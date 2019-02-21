@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="49291d6ca06d462b9514281d203dbf6d" Name="Diagram1" ZoomLevel="59">
+        <EntityTypeShape EntityType="CRMXModel.GridLayout" Width="1.5" PointX="3.375" PointY="0.75" />
+        <EntityTypeShape EntityType="CRMXModel.vUserPer" Width="1.5" PointX="3.375" PointY="3.75" />
+        <EntityTypeShape EntityType="CRMXModel.vCSOPTFH" Width="1.5" PointX="5.375" PointY="0.75" />
+        <EntityTypeShape EntityType="CRMXModel.UserGridLayout" Width="1.5" PointX="5.375" PointY="3.75" />
+        <EntityTypeShape EntityType="CRMXModel.vSN" Width="1.5" PointX="0.75" PointY="0.75" />
+        <EntityTypeShape EntityType="CRMXModel.vORDER" Width="1.5" PointX="5.375" PointY="6.75" />
+        <EntityTypeShape EntityType="CRMXModel.vOESHPDETAIL" Width="1.5" PointX="7.375" PointY="0.75" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

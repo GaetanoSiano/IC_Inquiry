@@ -3,7 +3,25 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
 VisualStudioVersion = 15.0.26228.4
 MinimumVisualStudioVersion = 10.0.40219.1
+Project("{F184B08F-C81C-45F6-A57F-5ABD9991F28F}") = "IC_Inquiry", "IC_Inquiry\IC_Inquiry.vbproj", "{1C577F02-75EE-4029-AB87-4B8B645CF86C}"
+EndProject
+Project("{F184B08F-C81C-45F6-A57F-5ABD9991F28F}") = "CRM_Frame", "CRM_Frame\CRM_Frame.vbproj", "{0C147AF6-217F-4786-AA1A-CC6103265C9A}"
+EndProject
 Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{1C577F02-75EE-4029-AB87-4B8B645CF86C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1C577F02-75EE-4029-AB87-4B8B645CF86C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1C577F02-75EE-4029-AB87-4B8B645CF86C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1C577F02-75EE-4029-AB87-4B8B645CF86C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0C147AF6-217F-4786-AA1A-CC6103265C9A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0C147AF6-217F-4786-AA1A-CC6103265C9A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0C147AF6-217F-4786-AA1A-CC6103265C9A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0C147AF6-217F-4786-AA1A-CC6103265C9A}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection

@@ -1,0 +1,1144 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="CRMXModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="GridLayout">
+          <Key>
+            <PropertyRef Name="UserId" />
+            <PropertyRef Name="Name" />
+          </Key>
+          <Property Name="UserId" Type="int" Nullable="false" />
+          <Property Name="Name" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Layout" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="LayoutName" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="UserGridLayout">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="UserId" Type="int" Nullable="false" />
+          <Property Name="GridName" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="LayoutName" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="LayoutData" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="Active" Type="bit" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'CRMX.dbo.vCSOPTFH' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="vCSOPTFH">
+          <Key>
+            <PropertyRef Name="TYPE" />
+            <PropertyRef Name="LENGTH" />
+            <PropertyRef Name="DECIMALS" />
+            <PropertyRef Name="VALIDATE" />
+          </Key>
+          <Property Name="OPTFIELD" Type="varchar" MaxLength="12" />
+          <Property Name="FDESC" Type="varchar" MaxLength="60" />
+          <Property Name="TYPE" Type="smallint" Nullable="false" />
+          <Property Name="LENGTH" Type="smallint" Nullable="false" />
+          <Property Name="DECIMALS" Type="smallint" Nullable="false" />
+          <Property Name="VALIDATE" Type="smallint" Nullable="false" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'CRMX.dbo.vOESHPDETAILS' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="vOESHPDETAILS">
+          <Key>
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="bigint" Nullable="false" />
+          <Property Name="CUSTOMER" Type="char" MaxLength="12" Nullable="false" />
+          <Property Name="ITEM" Type="char" MaxLength="24" Nullable="false" />
+          <Property Name="YR" Type="char" MaxLength="4" Nullable="false" />
+          <Property Name="PR" Type="smallint" Nullable="false" />
+          <Property Name="TRANDATE" Type="date" />
+          <Property Name="LINENO" Type="smallint" Nullable="false" />
+          <Property Name="TRANNUM" Type="char" MaxLength="22" Nullable="false" />
+          <Property Name="TRANTYPE" Type="smallint" Nullable="false" />
+          <Property Name="ORDDATE" Type="date" />
+          <Property Name="ORDNUMBER" Type="char" MaxLength="22" Nullable="false" />
+          <Property Name="SHIPDATE" Type="date" />
+          <Property Name="SALESPER" Type="char" MaxLength="8" Nullable="false" />
+          <Property Name="TERRITORY" Type="char" MaxLength="6" Nullable="false" />
+          <Property Name="TRANLOC" Type="char" MaxLength="6" Nullable="false" />
+          <Property Name="CATEGORY" Type="char" MaxLength="6" Nullable="false" />
+          <Property Name="QTYSOLD" Type="decimal" Precision="19" Scale="4" Nullable="false" />
+          <Property Name="SCURN" Type="char" MaxLength="3" Nullable="false" />
+          <Property Name="FCSTSALES" Type="decimal" Precision="19" Scale="3" Nullable="false" />
+          <Property Name="FAMTSALES" Type="decimal" Precision="19" Scale="3" Nullable="false" />
+          <Property Name="FRETSALES" Type="decimal" Precision="19" Scale="3" Nullable="false" />
+          <Property Name="PONUMBER" Type="char" MaxLength="22" Nullable="false" />
+          <Property Name="FAMTTRAN" Type="decimal" Precision="19" Scale="3" Nullable="false" />
+          <Property Name="SHINUMBER" Type="char" MaxLength="22" Nullable="false" />
+          <Property Name="NAMECUST" Type="char" MaxLength="60" Nullable="false" />
+          <Property Name="ITEMDESC" Type="char" MaxLength="60" Nullable="false" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'CRMX.dbo.vORDERS' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="vORDERS">
+          <Key>
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="bigint" Nullable="false" />
+          <Property Name="ORDUNIQ" Type="decimal" Precision="19" Scale="0" Nullable="false" />
+          <Property Name="ORDNUMBER" Type="char" MaxLength="22" Nullable="false" />
+          <Property Name="CUSTOMER" Type="char" MaxLength="12" Nullable="false" />
+          <Property Name="CUSTGROUP" Type="char" MaxLength="6" Nullable="false" />
+          <Property Name="BILNAME" Type="char" MaxLength="60" Nullable="false" />
+          <Property Name="BILPHONE" Type="char" MaxLength="30" Nullable="false" />
+          <Property Name="BILCONTACT" Type="char" MaxLength="60" Nullable="false" />
+          <Property Name="SHIPTO" Type="char" MaxLength="6" Nullable="false" />
+          <Property Name="SHPNAME" Type="char" MaxLength="60" Nullable="false" />
+          <Property Name="SHPPHONE" Type="char" MaxLength="30" Nullable="false" />
+          <Property Name="SHPCONTACT" Type="char" MaxLength="60" Nullable="false" />
+          <Property Name="PONUMBER" Type="char" MaxLength="22" Nullable="false" />
+          <Property Name="OETYPE" Type="smallint" Nullable="false" />
+          <Property Name="DESC" Type="char" MaxLength="60" Nullable="false" />
+          <Property Name="SALESPER1" Type="char" MaxLength="8" Nullable="false" />
+          <Property Name="SALESPER2" Type="char" MaxLength="8" Nullable="false" />
+          <Property Name="SALESPER3" Type="char" MaxLength="8" Nullable="false" />
+          <Property Name="SALESPER4" Type="char" MaxLength="8" Nullable="false" />
+          <Property Name="SALESPER5" Type="char" MaxLength="8" Nullable="false" />
+          <Property Name="OPPOID" Type="int" Nullable="false" />
+          <Property Name="COMPANYID" Type="int" Nullable="false" />
+          <Property Name="SHINUMBER" Type="char" MaxLength="22" />
+          <Property Name="INVNUMBER" Type="char" MaxLength="22" />
+          <Property Name="ORDDATE" Type="date" />
+          <Property Name="SHIDATE" Type="date" />
+          <Property Name="INVDATE" Type="date" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'CRMX.dbo.vSN' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="vSN">
+          <Key>
+            <PropertyRef Name="ITEMNUM" />
+            <PropertyRef Name="SERIALNUMF" />
+            <PropertyRef Name="ITEMNO" />
+            <PropertyRef Name="SERIALNUM" />
+            <PropertyRef Name="LOCATION" />
+            <PropertyRef Name="CATSORT" />
+            <PropertyRef Name="RESVFORORD" />
+            <PropertyRef Name="RESVFORORD_DESC" />
+            <PropertyRef Name="STATUS_DESC" />
+            <PropertyRef Name="STATUS" />
+            <PropertyRef Name="CATEGORY" />
+            <PropertyRef Name="CNTLACCT" />
+            <PropertyRef Name="ASSETCOST" />
+          </Key>
+          <Property Name="ITEMNUM" Type="char" MaxLength="24" Nullable="false" />
+          <Property Name="SERIALNUMF" Type="char" MaxLength="40" Nullable="false" />
+          <Property Name="ITEMNO" Type="char" MaxLength="24" Nullable="false" />
+          <Property Name="SERIALNUM" Type="char" MaxLength="40" Nullable="false" />
+          <Property Name="010FGWSN" Type="char" MaxLength="60" />
+          <Property Name="020ENGINESN" Type="char" MaxLength="60" />
+          <Property Name="030ALTSN" Type="char" MaxLength="60" />
+          <Property Name="100FREQUENCY" Type="int" />
+          <Property Name="110VOLTAGE" Type="char" MaxLength="60" />
+          <Property Name="120PHASE" Type="char" MaxLength="60" />
+          <Property Name="123AMPS" Type="char" MaxLength="60" />
+          <Property Name="124AMPSGEN" Type="char" MaxLength="60" />
+          <Property Name="130KW" Type="decimal" Precision="13" Scale="1" />
+          <Property Name="133KW" Type="decimal" Precision="13" Scale="1" />
+          <Property Name="136KW" Type="decimal" Precision="13" Scale="1" />
+          <Property Name="139KW" Type="decimal" Precision="13" Scale="1" />
+          <Property Name="140KVA" Type="decimal" Precision="13" Scale="1" />
+          <Property Name="143KVA" Type="decimal" Precision="13" Scale="1" />
+          <Property Name="146KVA" Type="decimal" Precision="13" Scale="1" />
+          <Property Name="149KVA" Type="decimal" Precision="13" Scale="1" />
+          <Property Name="150ENCLOSURE" Type="char" MaxLength="60" />
+          <Property Name="160ENCLTYPE" Type="char" MaxLength="60" />
+          <Property Name="170PRODPROMI" Type="date" />
+          <Property Name="180ENGINE" Type="char" MaxLength="60" />
+          <Property Name="185ENGINEBR" Type="char" MaxLength="60" />
+          <Property Name="190LENGTHDEP" Type="decimal" Precision="13" Scale="2" />
+          <Property Name="191WIDTH" Type="decimal" Precision="13" Scale="2" />
+          <Property Name="192HEIGHT" Type="decimal" Precision="13" Scale="2" />
+          <Property Name="195LENGTHDEP" Type="decimal" Precision="13" Scale="2" />
+          <Property Name="196WIDTH" Type="decimal" Precision="13" Scale="2" />
+          <Property Name="197HEIGHT" Type="decimal" Precision="13" Scale="2" />
+          <Property Name="198VOLUME" Type="decimal" Precision="13" Scale="2" />
+          <Property Name="200CTRLPANEL" Type="char" MaxLength="60" />
+          <Property Name="210LIFTPOINT" Type="char" MaxLength="60" />
+          <Property Name="220ALTERNATO" Type="char" MaxLength="60" />
+          <Property Name="230BATTERY" Type="char" MaxLength="60" />
+          <Property Name="240SILENCER" Type="char" MaxLength="60" />
+          <Property Name="250STONEGUAR" Type="char" MaxLength="60" />
+          <Property Name="260EPA" Type="char" MaxLength="60" />
+          <Property Name="270FUELTANK" Type="char" MaxLength="60" />
+          <Property Name="280NEL1" Type="char" MaxLength="60" />
+          <Property Name="400PRODPROMI" Type="date" />
+          <Property Name="410ETAPORT" Type="date" />
+          <Property Name="420INSHOP" Type="date" />
+          <Property Name="430OKTOSHIP" Type="date" />
+          <Property Name="440PICKUP" Type="date" />
+          <Property Name="450STARTUP" Type="date" />
+          <Property Name="501OPTION1" Type="char" MaxLength="60" />
+          <Property Name="501OPTION2" Type="char" MaxLength="60" />
+          <Property Name="501OPTION3" Type="char" MaxLength="60" />
+          <Property Name="501OPTION4" Type="char" MaxLength="60" />
+          <Property Name="501OPTION5" Type="char" MaxLength="60" />
+          <Property Name="550VENDORVIN" Type="char" MaxLength="60" />
+          <Property Name="600DESPATCH" Type="varchar" MaxLength="60" />
+          <Property Name="605FACTRYREF" Type="varchar" MaxLength="60" />
+          <Property Name="608DOCSDATE" Type="date" />
+          <Property Name="610CONTAINER" Type="varchar" MaxLength="60" />
+          <Property Name="620BL" Type="varchar" MaxLength="60" />
+          <Property Name="630ISF" Type="varchar" MaxLength="60" />
+          <Property Name="640CARRIER" Type="varchar" MaxLength="60" />
+          <Property Name="640CARRIER2" Type="varchar" MaxLength="60" />
+          <Property Name="640CARRIER3" Type="varchar" MaxLength="60" />
+          <Property Name="645VESSEL" Type="varchar" MaxLength="60" />
+          <Property Name="645VESSEL2" Type="varchar" MaxLength="60" />
+          <Property Name="645VESSEL3" Type="varchar" MaxLength="60" />
+          <Property Name="648VOYAGE" Type="varchar" MaxLength="60" />
+          <Property Name="650PORTORIG" Type="varchar" MaxLength="60" />
+          <Property Name="660CF214" Type="varchar" MaxLength="60" />
+          <Property Name="665IT7512IN" Type="varchar" MaxLength="60" />
+          <Property Name="670IMPORTENT" Type="varchar" MaxLength="60" />
+          <Property Name="700BOOKINGNO" Type="varchar" MaxLength="60" />
+          <Property Name="710IE7512" Type="varchar" MaxLength="60" />
+          <Property Name="713TE7512" Type="varchar" MaxLength="60" />
+          <Property Name="716IT7512OUT" Type="varchar" MaxLength="60" />
+          <Property Name="720PORTLOAD" Type="varchar" MaxLength="60" />
+          <Property Name="730CONTAINER" Type="varchar" MaxLength="60" />
+          <Property Name="735SEALNO" Type="varchar" MaxLength="60" />
+          <Property Name="740OCEANCARR" Type="varchar" MaxLength="60" />
+          <Property Name="744VESSELNAM" Type="varchar" MaxLength="60" />
+          <Property Name="748VOYAGE" Type="varchar" MaxLength="60" />
+          <Property Name="750EXPORTBL" Type="varchar" MaxLength="60" />
+          <Property Name="760PORTDEST" Type="varchar" MaxLength="60" />
+          <Property Name="800TRESVDATE" Type="date" />
+          <Property Name="810TRESVSLP" Type="varchar" MaxLength="60" />
+          <Property Name="850TRESVNOTE" Type="varchar" MaxLength="60" />
+          <Property Name="900NOTES" Type="varchar" MaxLength="60" />
+          <Property Name="880USDDATE" Type="date" />
+          <Property Name="880USD002" Type="varchar" MaxLength="60" />
+          <Property Name="880USD005" Type="varchar" MaxLength="60" />
+          <Property Name="880USD010" Type="varchar" MaxLength="60" />
+          <Property Name="880USD020" Type="varchar" MaxLength="60" />
+          <Property Name="880USD030" Type="varchar" MaxLength="60" />
+          <Property Name="880USD040" Type="varchar" MaxLength="60" />
+          <Property Name="880USD050" Type="varchar" MaxLength="60" />
+          <Property Name="880USD060" Type="varchar" MaxLength="60" />
+          <Property Name="880USD070" Type="varchar" MaxLength="60" />
+          <Property Name="193WEIGHTKG" Type="char" MaxLength="60" />
+          <Property Name="199WEIGHITEM" Type="char" MaxLength="60" />
+          <Property Name="221ALTMODEL" Type="char" MaxLength="60" />
+          <Property Name="300COUNTRYOR" Type="char" MaxLength="60" />
+          <Property Name="301COOSERIAL" Type="char" MaxLength="60" />
+          <Property Name="ARRIVALDATE" Type="date" />
+          <Property Name="LOCATION" Type="char" MaxLength="6" Nullable="false" />
+          <Property Name="ST" Type="varchar" MaxLength="2" />
+          <Property Name="DATESORT" Type="date" />
+          <Property Name="CATSORT" Type="varchar" MaxLength="9" Nullable="false" />
+          <Property Name="WATSORT" Type="decimal" Precision="13" Scale="1" />
+          <Property Name="RESVFORORD" Type="smallint" Nullable="false" />
+          <Property Name="RESVFORORD_DESC" Type="varchar" MaxLength="4" Nullable="false" />
+          <Property Name="STATUS_DESC" Type="varchar" MaxLength="13" Nullable="false" />
+          <Property Name="STATUS" Type="smallint" Nullable="false" />
+          <Property Name="PO_DOCNUM" Type="char" MaxLength="22" />
+          <Property Name="PO_TRANSDATE" Type="date" />
+          <Property Name="PO_RCPNUMBER" Type="char" MaxLength="22" />
+          <Property Name="PO_PONUMBER" Type="char" MaxLength="22" />
+          <Property Name="PO_VDCODE" Type="char" MaxLength="12" />
+          <Property Name="PO_VDNAME" Type="char" MaxLength="60" />
+          <Property Name="PO_INVNUMBER" Type="char" MaxLength="22" />
+          <Property Name="PO_INVDATE" Type="date" />
+          <Property Name="SO_ORDUNIQ" Type="decimal" Precision="19" Scale="0" />
+          <Property Name="SO_LINENUM" Type="smallint" />
+          <Property Name="SO_ORDNUMBER" Type="char" MaxLength="22" />
+          <Property Name="SO_CUSTOMER" Type="char" MaxLength="12" />
+          <Property Name="SO_BILNAME" Type="char" MaxLength="60" />
+          <Property Name="SO_SHPNAME" Type="char" MaxLength="60" />
+          <Property Name="SO_PONUMBER" Type="char" MaxLength="22" />
+          <Property Name="SO_ORDDATE" Type="date" />
+          <Property Name="SALESPER1" Type="char" MaxLength="8" />
+          <Property Name="951CUSTSECT1" Type="varchar" MaxLength="60" />
+          <Property Name="952CUSTSECT2" Type="varchar" MaxLength="60" />
+          <Property Name="LISTPRICE" Type="decimal" Precision="19" Scale="6" />
+          <Property Name="CATEGORY" Type="char" MaxLength="6" Nullable="false" />
+          <Property Name="CNTLACCT" Type="char" MaxLength="6" Nullable="false" />
+          <Property Name="ASSETCOST" Type="decimal" Precision="19" Scale="3" Nullable="false" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'CRMX.dbo.vUserPer' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="vUserPer">
+          <Key>
+            <PropertyRef Name="User_UserId" />
+          </Key>
+          <Property Name="User_UserId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="User_FirstName" Type="nvarchar" MaxLength="20" />
+          <Property Name="User_LastName" Type="nvarchar" MaxLength="35" />
+          <Property Name="User_Logon" Type="nvarchar" MaxLength="50" />
+          <Property Name="User_Per_Admin" Type="int" />
+          <Property Name="user_IC_History" Type="int" Nullable="false" />
+          <Property Name="user_IC_Inquiry" Type="int" Nullable="false" />
+          <Property Name="user_IC_Items" Type="int" Nullable="false" />
+          <Property Name="user_IC_Price" Type="int" Nullable="false" />
+          <Property Name="user_IC_ShowCost" Type="int" Nullable="false" />
+          <Property Name="user_IC_SN" Type="int" Nullable="false" />
+          <Property Name="user_per_600" Type="int" Nullable="false" />
+          <Property Name="user_per_880" Type="int" Nullable="false" />
+          <Property Name="user_IC_DefaultPage" Type="nvarchar" MaxLength="40" />
+        </EntityType>
+        <Function Name="prUpdateOptValue" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="ITEMNUM" Type="nvarchar" Mode="In" />
+          <Parameter Name="SERIALNUM" Type="nvarchar" Mode="In" />
+          <Parameter Name="OPTFIELD" Type="nvarchar" Mode="In" />
+          <Parameter Name="VALUE" Type="nvarchar" Mode="In" />
+          <Parameter Name="AUDTDATE" Type="int" Mode="In" />
+        </Function>
+        <EntityContainer Name="CRMXModelStoreContainer">
+          <EntitySet Name="GridLayout" EntityType="Self.GridLayout" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="UserGridLayout" EntityType="Self.UserGridLayout" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="vCSOPTFH" EntityType="Self.vCSOPTFH" store:Type="Views" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [vCSOPTFH].[OPTFIELD] AS [OPTFIELD], 
+    [vCSOPTFH].[FDESC] AS [FDESC], 
+    [vCSOPTFH].[TYPE] AS [TYPE], 
+    [vCSOPTFH].[LENGTH] AS [LENGTH], 
+    [vCSOPTFH].[DECIMALS] AS [DECIMALS], 
+    [vCSOPTFH].[VALIDATE] AS [VALIDATE]
+    FROM [dbo].[vCSOPTFH] AS [vCSOPTFH]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="vOESHPDETAILS" EntityType="Self.vOESHPDETAILS" store:Type="Views" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [vOESHPDETAILS].[ID] AS [ID], 
+    [vOESHPDETAILS].[CUSTOMER] AS [CUSTOMER], 
+    [vOESHPDETAILS].[ITEM] AS [ITEM], 
+    [vOESHPDETAILS].[YR] AS [YR], 
+    [vOESHPDETAILS].[PR] AS [PR], 
+    [vOESHPDETAILS].[TRANDATE] AS [TRANDATE], 
+    [vOESHPDETAILS].[LINENO] AS [LINENO], 
+    [vOESHPDETAILS].[TRANNUM] AS [TRANNUM], 
+    [vOESHPDETAILS].[TRANTYPE] AS [TRANTYPE], 
+    [vOESHPDETAILS].[ORDDATE] AS [ORDDATE], 
+    [vOESHPDETAILS].[ORDNUMBER] AS [ORDNUMBER], 
+    [vOESHPDETAILS].[SHIPDATE] AS [SHIPDATE], 
+    [vOESHPDETAILS].[SALESPER] AS [SALESPER], 
+    [vOESHPDETAILS].[TERRITORY] AS [TERRITORY], 
+    [vOESHPDETAILS].[TRANLOC] AS [TRANLOC], 
+    [vOESHPDETAILS].[CATEGORY] AS [CATEGORY], 
+    [vOESHPDETAILS].[QTYSOLD] AS [QTYSOLD], 
+    [vOESHPDETAILS].[SCURN] AS [SCURN], 
+    [vOESHPDETAILS].[FCSTSALES] AS [FCSTSALES], 
+    [vOESHPDETAILS].[FAMTSALES] AS [FAMTSALES], 
+    [vOESHPDETAILS].[FRETSALES] AS [FRETSALES], 
+    [vOESHPDETAILS].[PONUMBER] AS [PONUMBER], 
+    [vOESHPDETAILS].[FAMTTRAN] AS [FAMTTRAN], 
+    [vOESHPDETAILS].[SHINUMBER] AS [SHINUMBER], 
+    [vOESHPDETAILS].[NAMECUST] AS [NAMECUST], 
+    [vOESHPDETAILS].[ITEMDESC] AS [ITEMDESC]
+    FROM [dbo].[vOESHPDETAILS] AS [vOESHPDETAILS]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="vORDERS" EntityType="Self.vORDERS" store:Type="Views" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [vORDERS].[ID] AS [ID], 
+    [vORDERS].[ORDUNIQ] AS [ORDUNIQ], 
+    [vORDERS].[ORDNUMBER] AS [ORDNUMBER], 
+    [vORDERS].[CUSTOMER] AS [CUSTOMER], 
+    [vORDERS].[CUSTGROUP] AS [CUSTGROUP], 
+    [vORDERS].[BILNAME] AS [BILNAME], 
+    [vORDERS].[BILPHONE] AS [BILPHONE], 
+    [vORDERS].[BILCONTACT] AS [BILCONTACT], 
+    [vORDERS].[SHIPTO] AS [SHIPTO], 
+    [vORDERS].[SHPNAME] AS [SHPNAME], 
+    [vORDERS].[SHPPHONE] AS [SHPPHONE], 
+    [vORDERS].[SHPCONTACT] AS [SHPCONTACT], 
+    [vORDERS].[PONUMBER] AS [PONUMBER], 
+    [vORDERS].[OETYPE] AS [OETYPE], 
+    [vORDERS].[DESC] AS [DESC], 
+    [vORDERS].[SALESPER1] AS [SALESPER1], 
+    [vORDERS].[SALESPER2] AS [SALESPER2], 
+    [vORDERS].[SALESPER3] AS [SALESPER3], 
+    [vORDERS].[SALESPER4] AS [SALESPER4], 
+    [vORDERS].[SALESPER5] AS [SALESPER5], 
+    [vORDERS].[OPPOID] AS [OPPOID], 
+    [vORDERS].[COMPANYID] AS [COMPANYID], 
+    [vORDERS].[SHINUMBER] AS [SHINUMBER], 
+    [vORDERS].[INVNUMBER] AS [INVNUMBER], 
+    [vORDERS].[ORDDATE] AS [ORDDATE], 
+    [vORDERS].[SHIDATE] AS [SHIDATE], 
+    [vORDERS].[INVDATE] AS [INVDATE]
+    FROM [dbo].[vORDERS] AS [vORDERS]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="vSN" EntityType="Self.vSN" store:Type="Views" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [vSN].[ITEMNUM] AS [ITEMNUM], 
+    [vSN].[SERIALNUMF] AS [SERIALNUMF], 
+    [vSN].[ITEMNO] AS [ITEMNO], 
+    [vSN].[SERIALNUM] AS [SERIALNUM], 
+    [vSN].[010FGWSN] AS [010FGWSN], 
+    [vSN].[020ENGINESN] AS [020ENGINESN], 
+    [vSN].[030ALTSN] AS [030ALTSN], 
+    [vSN].[100FREQUENCY] AS [100FREQUENCY], 
+    [vSN].[110VOLTAGE] AS [110VOLTAGE], 
+    [vSN].[120PHASE] AS [120PHASE], 
+    [vSN].[123AMPS] AS [123AMPS], 
+    [vSN].[124AMPSGEN] AS [124AMPSGEN], 
+    [vSN].[130KW] AS [130KW], 
+    [vSN].[133KW] AS [133KW], 
+    [vSN].[136KW] AS [136KW], 
+    [vSN].[139KW] AS [139KW], 
+    [vSN].[140KVA] AS [140KVA], 
+    [vSN].[143KVA] AS [143KVA], 
+    [vSN].[146KVA] AS [146KVA], 
+    [vSN].[149KVA] AS [149KVA], 
+    [vSN].[150ENCLOSURE] AS [150ENCLOSURE], 
+    [vSN].[160ENCLTYPE] AS [160ENCLTYPE], 
+    [vSN].[170PRODPROMI] AS [170PRODPROMI], 
+    [vSN].[180ENGINE] AS [180ENGINE], 
+    [vSN].[185ENGINEBR] AS [185ENGINEBR], 
+    [vSN].[190LENGTHDEP] AS [190LENGTHDEP], 
+    [vSN].[191WIDTH] AS [191WIDTH], 
+    [vSN].[192HEIGHT] AS [192HEIGHT], 
+    [vSN].[195LENGTHDEP] AS [195LENGTHDEP], 
+    [vSN].[196WIDTH] AS [196WIDTH], 
+    [vSN].[197HEIGHT] AS [197HEIGHT], 
+    [vSN].[198VOLUME] AS [198VOLUME], 
+    [vSN].[200CTRLPANEL] AS [200CTRLPANEL], 
+    [vSN].[210LIFTPOINT] AS [210LIFTPOINT], 
+    [vSN].[220ALTERNATO] AS [220ALTERNATO], 
+    [vSN].[230BATTERY] AS [230BATTERY], 
+    [vSN].[240SILENCER] AS [240SILENCER], 
+    [vSN].[250STONEGUAR] AS [250STONEGUAR], 
+    [vSN].[260EPA] AS [260EPA], 
+    [vSN].[270FUELTANK] AS [270FUELTANK], 
+    [vSN].[280NEL1] AS [280NEL1], 
+    [vSN].[400PRODPROMI] AS [400PRODPROMI], 
+    [vSN].[410ETAPORT] AS [410ETAPORT], 
+    [vSN].[420INSHOP] AS [420INSHOP], 
+    [vSN].[430OKTOSHIP] AS [430OKTOSHIP], 
+    [vSN].[440PICKUP] AS [440PICKUP], 
+    [vSN].[450STARTUP] AS [450STARTUP], 
+    [vSN].[501OPTION1] AS [501OPTION1], 
+    [vSN].[501OPTION2] AS [501OPTION2], 
+    [vSN].[501OPTION3] AS [501OPTION3], 
+    [vSN].[501OPTION4] AS [501OPTION4], 
+    [vSN].[501OPTION5] AS [501OPTION5], 
+    [vSN].[550VENDORVIN] AS [550VENDORVIN], 
+    [vSN].[600DESPATCH] AS [600DESPATCH], 
+    [vSN].[605FACTRYREF] AS [605FACTRYREF], 
+    [vSN].[608DOCSDATE] AS [608DOCSDATE], 
+    [vSN].[610CONTAINER] AS [610CONTAINER], 
+    [vSN].[620BL] AS [620BL], 
+    [vSN].[630ISF] AS [630ISF], 
+    [vSN].[640CARRIER] AS [640CARRIER], 
+    [vSN].[640CARRIER2] AS [640CARRIER2], 
+    [vSN].[640CARRIER3] AS [640CARRIER3], 
+    [vSN].[645VESSEL] AS [645VESSEL], 
+    [vSN].[645VESSEL2] AS [645VESSEL2], 
+    [vSN].[645VESSEL3] AS [645VESSEL3], 
+    [vSN].[648VOYAGE] AS [648VOYAGE], 
+    [vSN].[650PORTORIG] AS [650PORTORIG], 
+    [vSN].[660CF214] AS [660CF214], 
+    [vSN].[665IT7512IN] AS [665IT7512IN], 
+    [vSN].[670IMPORTENT] AS [670IMPORTENT], 
+    [vSN].[700BOOKINGNO] AS [700BOOKINGNO], 
+    [vSN].[710IE7512] AS [710IE7512], 
+    [vSN].[713TE7512] AS [713TE7512], 
+    [vSN].[716IT7512OUT] AS [716IT7512OUT], 
+    [vSN].[720PORTLOAD] AS [720PORTLOAD], 
+    [vSN].[730CONTAINER] AS [730CONTAINER], 
+    [vSN].[735SEALNO] AS [735SEALNO], 
+    [vSN].[740OCEANCARR] AS [740OCEANCARR], 
+    [vSN].[744VESSELNAM] AS [744VESSELNAM], 
+    [vSN].[748VOYAGE] AS [748VOYAGE], 
+    [vSN].[750EXPORTBL] AS [750EXPORTBL], 
+    [vSN].[760PORTDEST] AS [760PORTDEST], 
+    [vSN].[800TRESVDATE] AS [800TRESVDATE], 
+    [vSN].[810TRESVSLP] AS [810TRESVSLP], 
+    [vSN].[850TRESVNOTE] AS [850TRESVNOTE], 
+    [vSN].[900NOTES] AS [900NOTES], 
+    [vSN].[880USDDATE] AS [880USDDATE], 
+    [vSN].[880USD002] AS [880USD002], 
+    [vSN].[880USD005] AS [880USD005], 
+    [vSN].[880USD010] AS [880USD010], 
+    [vSN].[880USD020] AS [880USD020], 
+    [vSN].[880USD030] AS [880USD030], 
+    [vSN].[880USD040] AS [880USD040], 
+    [vSN].[880USD050] AS [880USD050], 
+    [vSN].[880USD060] AS [880USD060], 
+    [vSN].[880USD070] AS [880USD070], 
+    [vSN].[193WEIGHTKG] AS [193WEIGHTKG], 
+    [vSN].[199WEIGHITEM] AS [199WEIGHITEM], 
+    [vSN].[221ALTMODEL] AS [221ALTMODEL], 
+    [vSN].[300COUNTRYOR] AS [300COUNTRYOR], 
+    [vSN].[301COOSERIAL] AS [301COOSERIAL], 
+    [vSN].[ARRIVALDATE] AS [ARRIVALDATE], 
+    [vSN].[LOCATION] AS [LOCATION], 
+    [vSN].[ST] AS [ST], 
+    [vSN].[DATESORT] AS [DATESORT], 
+    [vSN].[CATSORT] AS [CATSORT], 
+    [vSN].[WATSORT] AS [WATSORT], 
+    [vSN].[RESVFORORD] AS [RESVFORORD], 
+    [vSN].[RESVFORORD_DESC] AS [RESVFORORD_DESC], 
+    [vSN].[STATUS_DESC] AS [STATUS_DESC], 
+    [vSN].[STATUS] AS [STATUS], 
+    [vSN].[PO_DOCNUM] AS [PO_DOCNUM], 
+    [vSN].[PO_TRANSDATE] AS [PO_TRANSDATE], 
+    [vSN].[PO_RCPNUMBER] AS [PO_RCPNUMBER], 
+    [vSN].[PO_PONUMBER] AS [PO_PONUMBER], 
+    [vSN].[PO_VDCODE] AS [PO_VDCODE], 
+    [vSN].[PO_VDNAME] AS [PO_VDNAME], 
+    [vSN].[PO_INVNUMBER] AS [PO_INVNUMBER], 
+    [vSN].[PO_INVDATE] AS [PO_INVDATE], 
+    [vSN].[SO_ORDUNIQ] AS [SO_ORDUNIQ], 
+    [vSN].[SO_LINENUM] AS [SO_LINENUM], 
+    [vSN].[SO_ORDNUMBER] AS [SO_ORDNUMBER], 
+    [vSN].[SO_CUSTOMER] AS [SO_CUSTOMER], 
+    [vSN].[SO_BILNAME] AS [SO_BILNAME], 
+    [vSN].[SO_SHPNAME] AS [SO_SHPNAME], 
+    [vSN].[SO_PONUMBER] AS [SO_PONUMBER], 
+    [vSN].[SO_ORDDATE] AS [SO_ORDDATE], 
+    [vSN].[SALESPER1] AS [SALESPER1], 
+    [vSN].[951CUSTSECT1] AS [951CUSTSECT1], 
+    [vSN].[952CUSTSECT2] AS [952CUSTSECT2], 
+    [vSN].[LISTPRICE] AS [LISTPRICE], 
+    [vSN].[CATEGORY] AS [CATEGORY], 
+    [vSN].[CNTLACCT] AS [CNTLACCT], 
+    [vSN].[ASSETCOST] AS [ASSETCOST]
+    FROM [dbo].[vSN] AS [vSN]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="vUserPer" EntityType="Self.vUserPer" store:Type="Views" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [vUserPer].[User_UserId] AS [User_UserId], 
+    [vUserPer].[User_FirstName] AS [User_FirstName], 
+    [vUserPer].[User_LastName] AS [User_LastName], 
+    [vUserPer].[User_Logon] AS [User_Logon], 
+    [vUserPer].[User_Per_Admin] AS [User_Per_Admin], 
+    [vUserPer].[user_IC_History] AS [user_IC_History], 
+    [vUserPer].[user_IC_Inquiry] AS [user_IC_Inquiry], 
+    [vUserPer].[user_IC_Items] AS [user_IC_Items], 
+    [vUserPer].[user_IC_Price] AS [user_IC_Price], 
+    [vUserPer].[user_IC_ShowCost] AS [user_IC_ShowCost], 
+    [vUserPer].[user_IC_SN] AS [user_IC_SN], 
+    [vUserPer].[user_per_600] AS [user_per_600], 
+    [vUserPer].[user_per_880] AS [user_per_880], 
+    [vUserPer].[user_IC_DefaultPage] AS [user_IC_DefaultPage]
+    FROM [dbo].[vUserPer] AS [vUserPer]</DefiningQuery>
+          </EntitySet>
+        </EntityContainer>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="CRMXModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityContainer Name="CRMXEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="GridLayouts" EntityType="CRMXModel.GridLayout" />
+          <EntitySet Name="vUserPers" EntityType="CRMXModel.vUserPer" />
+          <EntitySet Name="vCSOPTFHs" EntityType="CRMXModel.vCSOPTFH" />
+          <FunctionImport Name="prUpdateOptValue">
+            <Parameter Name="ITEMNUM" Mode="In" Type="String" />
+            <Parameter Name="SERIALNUM" Mode="In" Type="String" />
+            <Parameter Name="OPTFIELD" Mode="In" Type="String" />
+            <Parameter Name="VALUE" Mode="In" Type="String" />
+            <Parameter Name="AUDTDATE" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <EntitySet Name="UserGridLayouts" EntityType="CRMXModel.UserGridLayout" />
+          <EntitySet Name="vSNs" EntityType="CRMXModel.vSN" />
+          <EntitySet Name="vORDERS" EntityType="CRMXModel.vORDER" />
+          <EntitySet Name="vOESHPDETAILS" EntityType="CRMXModel.vOESHPDETAIL" />
+        </EntityContainer>
+        <EntityType Name="GridLayout">
+          <Key>
+            <PropertyRef Name="UserId" />
+            <PropertyRef Name="Name" />
+          </Key>
+          <Property Name="UserId" Type="Int32" Nullable="false" />
+          <Property Name="Name" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Layout" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="LayoutName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="vUserPer">
+          <Key>
+            <PropertyRef Name="User_UserId" />
+          </Key>
+          <Property Name="User_UserId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="User_FirstName" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Name="User_LastName" Type="String" MaxLength="35" FixedLength="false" Unicode="true" />
+          <Property Name="User_Logon" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="User_Per_Admin" Type="Int32" />
+          <Property Name="user_IC_History" Type="Int32" Nullable="false" />
+          <Property Name="user_IC_Inquiry" Type="Int32" Nullable="false" />
+          <Property Name="user_IC_Items" Type="Int32" Nullable="false" />
+          <Property Name="user_IC_Price" Type="Int32" Nullable="false" />
+          <Property Name="user_IC_ShowCost" Type="Int32" Nullable="false" />
+          <Property Name="user_IC_SN" Type="Int32" Nullable="false" />
+          <Property Name="user_IC_DefaultPage" Type="String" MaxLength="40" FixedLength="false" Unicode="true" />
+          <Property Name="user_per_600" Type="Int32" Nullable="false" />
+          <Property Name="user_per_880" Type="Int32" Nullable="false" />
+        </EntityType>
+        <EntityType Name="vCSOPTFH">
+          <Key>
+            <PropertyRef Name="TYPE" />
+            <PropertyRef Name="LENGTH" />
+            <PropertyRef Name="DECIMALS" />
+            <PropertyRef Name="VALIDATE" />
+          </Key>
+          <Property Name="OPTFIELD" Type="String" MaxLength="12" FixedLength="false" Unicode="false" />
+          <Property Name="FDESC" Type="String" MaxLength="60" FixedLength="false" Unicode="false" />
+          <Property Name="TYPE" Type="Int16" Nullable="false" />
+          <Property Name="LENGTH" Type="Int16" Nullable="false" />
+          <Property Name="DECIMALS" Type="Int16" Nullable="false" />
+          <Property Name="VALIDATE" Type="Int16" Nullable="false" />
+        </EntityType>
+        <EntityType Name="UserGridLayout">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="UserId" Type="Int32" Nullable="false" />
+          <Property Name="GridName" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="LayoutName" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="LayoutData" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Active" Type="Boolean" />
+        </EntityType>
+        <EntityType Name="vSN">
+          <Key>
+            <PropertyRef Name="ITEMNUM" />
+            <PropertyRef Name="SERIALNUMF" />
+            <PropertyRef Name="ITEMNO" />
+            <PropertyRef Name="SERIALNUM" />
+            <PropertyRef Name="LOCATION" />
+            <PropertyRef Name="CATSORT" />
+            <PropertyRef Name="RESVFORORD" />
+            <PropertyRef Name="RESVFORORD_DESC" />
+            <PropertyRef Name="STATUS_DESC" />
+            <PropertyRef Name="STATUS" />
+            <PropertyRef Name="CATEGORY" />
+            <PropertyRef Name="CNTLACCT" />
+            <PropertyRef Name="ASSETCOST" />
+          </Key>
+          <Property Name="ITEMNUM" Type="String" Nullable="false" MaxLength="24" FixedLength="true" Unicode="false" />
+          <Property Name="SERIALNUMF" Type="String" Nullable="false" MaxLength="40" FixedLength="true" Unicode="false" />
+          <Property Name="ITEMNO" Type="String" Nullable="false" MaxLength="24" FixedLength="true" Unicode="false" />
+          <Property Name="SERIALNUM" Type="String" Nullable="false" MaxLength="40" FixedLength="true" Unicode="false" />
+          <Property Name="C010FGWSN" Type="String" MaxLength="60" FixedLength="true" Unicode="false" />
+          <Property Name="C020ENGINESN" Type="String" MaxLength="60" FixedLength="true" Unicode="false" />
+          <Property Name="C030ALTSN" Type="String" MaxLength="60" FixedLength="true" Unicode="false" />
+          <Property Name="C100FREQUENCY" Type="Int32" />
+          <Property Name="C110VOLTAGE" Type="String" MaxLength="60" FixedLength="true" Unicode="false" />
+          <Property Name="C120PHASE" Type="String" MaxLength="60" FixedLength="true" Unicode="false" />
+          <Property Name="C123AMPS" Type="String" MaxLength="60" FixedLength="true" Unicode="false" />
+          <Property Name="C130KW" Type="Decimal" Precision="13" Scale="1" />
+          <Property Name="C133KW" Type="Decimal" Precision="13" Scale="1" />
+          <Property Name="C136KW" Type="Decimal" Precision="13" Scale="1" />
+          <Property Name="C139KW" Type="Decimal" Precision="13" Scale="1" />
+          <Property Name="C140KVA" Type="Decimal" Precision="13" Scale="1" />
+          <Property Name="C143KVA" Type="Decimal" Precision="13" Scale="1" />
+          <Property Name="C146KVA" Type="Decimal" Precision="13" Scale="1" />
+          <Property Name="C149KVA" Type="Decimal" Precision="13" Scale="1" />
+          <Property Name="C150ENCLOSURE" Type="String" MaxLength="60" FixedLength="true" Unicode="false" />
+          <Property Name="C160ENCLTYPE" Type="String" MaxLength="60" FixedLength="true" Unicode="false" />
+          <Property Name="C170PRODPROMI" Type="DateTime" Precision="0" />
+          <Property Name="C180ENGINE" Type="String" MaxLength="60" FixedLength="true" Unicode="false" />
+          <Property Name="C185ENGINEBR" Type="String" MaxLength="60" FixedLength="true" Unicode="false" />
+          <Property Name="C190LENGTHDEP" Type="Decimal" Precision="13" Scale="2" />
+          <Property Name="C191WIDTH" Type="Decimal" Precision="13" Scale="2" />
+          <Property Name="C192HEIGHT" Type="Decimal" Precision="13" Scale="2" />
+          <Property Name="C195LENGTHDEP" Type="Decimal" Precision="13" Scale="2" />
+          <Property Name="C196WIDTH" Type="Decimal" Precision="13" Scale="2" />
+          <Property Name="C197HEIGHT" Type="Decimal" Precision="13" Scale="2" />
+          <Property Name="C198VOLUME" Type="Decimal" Precision="13" Scale="2" />
+          <Property Name="C200CTRLPANEL" Type="String" MaxLength="60" FixedLength="true" Unicode="false" />
+          <Property Name="C210LIFTPOINT" Type="String" MaxLength="60" FixedLength="true" Unicode="false" />
+          <Property Name="C220ALTERNATO" Type="String" MaxLength="60" FixedLength="true" Unicode="false" />
+          <Property Name="C230BATTERY" Type="String" MaxLength="60" FixedLength="true" Unicode="false" />
+          <Property Name="C240SILENCER" Type="String" MaxLength="60" FixedLength="true" Unicode="false" />
+          <Property Name="C250STONEGUAR" Type="String" MaxLength="60" FixedLength="true" Unicode="false" />
+          <Property Name="C260EPA" Type="String" MaxLength="60" FixedLength="true" Unicode="false" />
+          <Property Name="C270FUELTANK" Type="String" MaxLength="60" FixedLength="true" Unicode="false" />
+          <Property Name="C280NEL1" Type="String" MaxLength="60" FixedLength="true" Unicode="false" />
+          <Property Name="C400PRODPROMI" Type="DateTime" Precision="0" />
+          <Property Name="C410ETAPORT" Type="DateTime" Precision="0" />
+          <Property Name="C420INSHOP" Type="DateTime" Precision="0" />
+          <Property Name="C430OKTOSHIP" Type="DateTime" Precision="0" />
+          <Property Name="C440PICKUP" Type="DateTime" Precision="0" />
+          <Property Name="C450STARTUP" Type="DateTime" Precision="0" />
+          <Property Name="C501OPTION1" Type="String" MaxLength="60" FixedLength="true" Unicode="false" />
+          <Property Name="C501OPTION2" Type="String" MaxLength="60" FixedLength="true" Unicode="false" />
+          <Property Name="C501OPTION3" Type="String" MaxLength="60" FixedLength="true" Unicode="false" />
+          <Property Name="C501OPTION4" Type="String" MaxLength="60" FixedLength="true" Unicode="false" />
+          <Property Name="C501OPTION5" Type="String" MaxLength="60" FixedLength="true" Unicode="false" />
+          <Property Name="C550VENDORVIN" Type="String" MaxLength="60" FixedLength="true" Unicode="false" />
+          <Property Name="C600DESPATCH" Type="String" MaxLength="60" FixedLength="false" Unicode="false" />
+          <Property Name="C605FACTRYREF" Type="String" MaxLength="60" FixedLength="false" Unicode="false" />
+          <Property Name="C608DOCSDATE" Type="DateTime" Precision="0" />
+          <Property Name="C610CONTAINER" Type="String" MaxLength="60" FixedLength="false" Unicode="false" />
+          <Property Name="C620BL" Type="String" MaxLength="60" FixedLength="false" Unicode="false" />
+          <Property Name="C630ISF" Type="String" MaxLength="60" FixedLength="false" Unicode="false" />
+          <Property Name="C640CARRIER" Type="String" MaxLength="60" FixedLength="false" Unicode="false" />
+          <Property Name="C640CARRIER2" Type="String" MaxLength="60" FixedLength="false" Unicode="false" />
+          <Property Name="C800TRESVDATE" Type="DateTime" Precision="0" />
+          <Property Name="C810TRESVSLP" Type="String" MaxLength="60" FixedLength="false" Unicode="false" />
+          <Property Name="C850TRESVNOTE" Type="String" MaxLength="60" FixedLength="false" Unicode="false" />
+          <Property Name="C900NOTES" Type="String" MaxLength="60" FixedLength="false" Unicode="false" />
+          <Property Name="ARRIVALDATE" Type="DateTime" Precision="0" />
+          <Property Name="LOCATION" Type="String" Nullable="false" MaxLength="6" FixedLength="true" Unicode="false" />
+          <Property Name="ST" Type="String" MaxLength="2" FixedLength="false" Unicode="false" />
+          <Property Name="DATESORT" Type="DateTime" Precision="0" />
+          <Property Name="CATSORT" Type="String" Nullable="false" MaxLength="9" FixedLength="false" Unicode="false" />
+          <Property Name="WATSORT" Type="Decimal" Precision="13" Scale="1" />
+          <Property Name="RESVFORORD" Type="Int16" Nullable="false" />
+          <Property Name="RESVFORORD_DESC" Type="String" Nullable="false" MaxLength="4" FixedLength="false" Unicode="false" />
+          <Property Name="STATUS_DESC" Type="String" Nullable="false" MaxLength="13" FixedLength="false" Unicode="false" />
+          <Property Name="STATUS" Type="Int16" Nullable="false" />
+          <Property Name="PO_DOCNUM" Type="String" MaxLength="22" FixedLength="true" Unicode="false" />
+          <Property Name="PO_TRANSDATE" Type="DateTime" Precision="0" />
+          <Property Name="PO_RCPNUMBER" Type="String" MaxLength="22" FixedLength="true" Unicode="false" />
+          <Property Name="PO_PONUMBER" Type="String" MaxLength="22" FixedLength="true" Unicode="false" />
+          <Property Name="PO_VDCODE" Type="String" MaxLength="12" FixedLength="true" Unicode="false" />
+          <Property Name="PO_VDNAME" Type="String" MaxLength="60" FixedLength="true" Unicode="false" />
+          <Property Name="PO_INVNUMBER" Type="String" MaxLength="22" FixedLength="true" Unicode="false" />
+          <Property Name="PO_INVDATE" Type="DateTime" Precision="0" />
+          <Property Name="SO_ORDUNIQ" Type="Decimal" Precision="19" Scale="0" />
+          <Property Name="SO_LINENUM" Type="Int16" />
+          <Property Name="SO_ORDNUMBER" Type="String" MaxLength="22" FixedLength="true" Unicode="false" />
+          <Property Name="SO_CUSTOMER" Type="String" MaxLength="12" FixedLength="true" Unicode="false" />
+          <Property Name="SO_BILNAME" Type="String" MaxLength="60" FixedLength="true" Unicode="false" />
+          <Property Name="SO_SHPNAME" Type="String" MaxLength="60" FixedLength="true" Unicode="false" />
+          <Property Name="SO_PONUMBER" Type="String" MaxLength="22" FixedLength="true" Unicode="false" />
+          <Property Name="SO_ORDDATE" Type="DateTime" Precision="0" />
+          <Property Name="LISTPRICE" Type="Decimal" Precision="19" Scale="6" />
+          <Property Name="CATEGORY" Type="String" Nullable="false" MaxLength="6" FixedLength="true" Unicode="false" />
+          <Property Name="CNTLACCT" Type="String" Nullable="false" MaxLength="6" FixedLength="true" Unicode="false" />
+          <Property Name="ASSETCOST" Type="Decimal" Nullable="false" Precision="19" Scale="3" />
+          <Property Name="C640CARRIER3" Type="String" MaxLength="60" FixedLength="false" Unicode="false" />
+          <Property Name="C645VESSEL" Type="String" MaxLength="60" FixedLength="false" Unicode="false" />
+          <Property Name="C645VESSEL2" Type="String" MaxLength="60" FixedLength="false" Unicode="false" />
+          <Property Name="C645VESSEL3" Type="String" MaxLength="60" FixedLength="false" Unicode="false" />
+          <Property Name="C648VOYAGE" Type="String" MaxLength="60" FixedLength="false" Unicode="false" />
+          <Property Name="C650PORTORIG" Type="String" MaxLength="60" FixedLength="false" Unicode="false" />
+          <Property Name="C660CF214" Type="String" MaxLength="60" FixedLength="false" Unicode="false" />
+          <Property Name="C665IT7512IN" Type="String" MaxLength="60" FixedLength="false" Unicode="false" />
+          <Property Name="C670IMPORTENT" Type="String" MaxLength="60" FixedLength="false" Unicode="false" />
+          <Property Name="C700BOOKINGNO" Type="String" MaxLength="60" FixedLength="false" Unicode="false" />
+          <Property Name="C710IE7512" Type="String" MaxLength="60" FixedLength="false" Unicode="false" />
+          <Property Name="C713TE7512" Type="String" MaxLength="60" FixedLength="false" Unicode="false" />
+          <Property Name="C716IT7512OUT" Type="String" MaxLength="60" FixedLength="false" Unicode="false" />
+          <Property Name="C720PORTLOAD" Type="String" MaxLength="60" FixedLength="false" Unicode="false" />
+          <Property Name="C730CONTAINER" Type="String" MaxLength="60" FixedLength="false" Unicode="false" />
+          <Property Name="C735SEALNO" Type="String" MaxLength="60" FixedLength="false" Unicode="false" />
+          <Property Name="C740OCEANCARR" Type="String" MaxLength="60" FixedLength="false" Unicode="false" />
+          <Property Name="C744VESSELNAM" Type="String" MaxLength="60" FixedLength="false" Unicode="false" />
+          <Property Name="C748VOYAGE" Type="String" MaxLength="60" FixedLength="false" Unicode="false" />
+          <Property Name="C750EXPORTBL" Type="String" MaxLength="60" FixedLength="false" Unicode="false" />
+          <Property Name="C760PORTDEST" Type="String" MaxLength="60" FixedLength="false" Unicode="false" />
+          <Property Name="SALESPER1" Type="String" MaxLength="8" FixedLength="true" Unicode="false" />
+          <Property Name="C193WEIGHTKG" Type="String" MaxLength="60" FixedLength="true" Unicode="false" />
+          <Property Name="C199WEIGHITEM" Type="String" MaxLength="60" FixedLength="true" Unicode="false" />
+          <Property Name="C221ALTMODEL" Type="String" MaxLength="60" FixedLength="true" Unicode="false" />
+          <Property Name="C300COUNTRYOR" Type="String" MaxLength="60" FixedLength="true" Unicode="false" />
+          <Property Name="C301COOSERIAL" Type="String" MaxLength="60" FixedLength="true" Unicode="false" />
+          <Property Name="C951CUSTSECT1" Type="String" MaxLength="60" FixedLength="false" Unicode="false" />
+          <Property Name="C952CUSTSECT2" Type="String" MaxLength="60" FixedLength="false" Unicode="false" />
+          <Property Name="C124AMPSGEN" Type="String" MaxLength="60" FixedLength="true" Unicode="false" />
+          <Property Name="C880USD005" Type="String" MaxLength="60" FixedLength="false" Unicode="false" />
+          <Property Name="C880USD010" Type="String" MaxLength="60" FixedLength="false" Unicode="false" />
+          <Property Name="C880USD020" Type="String" MaxLength="60" FixedLength="false" Unicode="false" />
+          <Property Name="C880USD030" Type="String" MaxLength="60" FixedLength="false" Unicode="false" />
+          <Property Name="C880USD040" Type="String" MaxLength="60" FixedLength="false" Unicode="false" />
+          <Property Name="C880USD050" Type="String" MaxLength="60" FixedLength="false" Unicode="false" />
+          <Property Name="C880USD060" Type="String" MaxLength="60" FixedLength="false" Unicode="false" />
+          <Property Name="C880USD070" Type="String" MaxLength="60" FixedLength="false" Unicode="false" />
+          <Property Name="C880USD002" Type="String" MaxLength="60" FixedLength="false" Unicode="false" />
+          <Property Name="C880USDDATE" Type="DateTime" Nullable="true" Precision="0" />
+        </EntityType>
+        <EntityType Name="vORDER">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int64" Nullable="false" />
+          <Property Name="ORDUNIQ" Type="Decimal" Nullable="false" Precision="19" Scale="0" />
+          <Property Name="ORDNUMBER" Type="String" Nullable="false" MaxLength="22" FixedLength="true" Unicode="false" />
+          <Property Name="CUSTOMER" Type="String" Nullable="false" MaxLength="12" FixedLength="true" Unicode="false" />
+          <Property Name="CUSTGROUP" Type="String" Nullable="false" MaxLength="6" FixedLength="true" Unicode="false" />
+          <Property Name="BILNAME" Type="String" Nullable="false" MaxLength="60" FixedLength="true" Unicode="false" />
+          <Property Name="BILPHONE" Type="String" Nullable="false" MaxLength="30" FixedLength="true" Unicode="false" />
+          <Property Name="BILCONTACT" Type="String" Nullable="false" MaxLength="60" FixedLength="true" Unicode="false" />
+          <Property Name="SHIPTO" Type="String" Nullable="false" MaxLength="6" FixedLength="true" Unicode="false" />
+          <Property Name="SHPNAME" Type="String" Nullable="false" MaxLength="60" FixedLength="true" Unicode="false" />
+          <Property Name="SHPPHONE" Type="String" Nullable="false" MaxLength="30" FixedLength="true" Unicode="false" />
+          <Property Name="SHPCONTACT" Type="String" Nullable="false" MaxLength="60" FixedLength="true" Unicode="false" />
+          <Property Name="PONUMBER" Type="String" Nullable="false" MaxLength="22" FixedLength="true" Unicode="false" />
+          <Property Name="OETYPE" Type="Int16" Nullable="false" />
+          <Property Name="DESC" Type="String" Nullable="false" MaxLength="60" FixedLength="true" Unicode="false" />
+          <Property Name="SALESPER1" Type="String" Nullable="false" MaxLength="8" FixedLength="true" Unicode="false" />
+          <Property Name="SALESPER2" Type="String" Nullable="false" MaxLength="8" FixedLength="true" Unicode="false" />
+          <Property Name="SALESPER3" Type="String" Nullable="false" MaxLength="8" FixedLength="true" Unicode="false" />
+          <Property Name="SALESPER4" Type="String" Nullable="false" MaxLength="8" FixedLength="true" Unicode="false" />
+          <Property Name="SALESPER5" Type="String" Nullable="false" MaxLength="8" FixedLength="true" Unicode="false" />
+          <Property Name="OPPOID" Type="Int32" Nullable="false" />
+          <Property Name="COMPANYID" Type="Int32" Nullable="false" />
+          <Property Name="SHINUMBER" Type="String" MaxLength="22" FixedLength="true" Unicode="false" />
+          <Property Name="INVNUMBER" Type="String" MaxLength="22" FixedLength="true" Unicode="false" />
+          <Property Name="ORDDATE" Type="DateTime" Precision="0" />
+          <Property Name="SHIDATE" Type="DateTime" Precision="0" />
+          <Property Name="INVDATE" Type="DateTime" Precision="0" />
+        </EntityType>
+        <EntityType Name="vOESHPDETAIL">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int64" Nullable="false" />
+          <Property Name="CUSTOMER" Type="String" Nullable="false" MaxLength="12" FixedLength="true" Unicode="false" />
+          <Property Name="ITEM" Type="String" Nullable="false" MaxLength="24" FixedLength="true" Unicode="false" />
+          <Property Name="YR" Type="String" Nullable="false" MaxLength="4" FixedLength="true" Unicode="false" />
+          <Property Name="PR" Type="Int16" Nullable="false" />
+          <Property Name="TRANDATE" Type="DateTime" Precision="0" />
+          <Property Name="LINENO" Type="Int16" Nullable="false" />
+          <Property Name="TRANNUM" Type="String" Nullable="false" MaxLength="22" FixedLength="true" Unicode="false" />
+          <Property Name="TRANTYPE" Type="Int16" Nullable="false" />
+          <Property Name="ORDDATE" Type="DateTime" Precision="0" />
+          <Property Name="ORDNUMBER" Type="String" Nullable="false" MaxLength="22" FixedLength="true" Unicode="false" />
+          <Property Name="SHIPDATE" Type="DateTime" Precision="0" />
+          <Property Name="SALESPER" Type="String" Nullable="false" MaxLength="8" FixedLength="true" Unicode="false" />
+          <Property Name="TERRITORY" Type="String" Nullable="false" MaxLength="6" FixedLength="true" Unicode="false" />
+          <Property Name="TRANLOC" Type="String" Nullable="false" MaxLength="6" FixedLength="true" Unicode="false" />
+          <Property Name="CATEGORY" Type="String" Nullable="false" MaxLength="6" FixedLength="true" Unicode="false" />
+          <Property Name="QTYSOLD" Type="Decimal" Nullable="false" Precision="19" Scale="4" />
+          <Property Name="SCURN" Type="String" Nullable="false" MaxLength="3" FixedLength="true" Unicode="false" />
+          <Property Name="FCSTSALES" Type="Decimal" Nullable="false" Precision="19" Scale="3" />
+          <Property Name="FAMTSALES" Type="Decimal" Nullable="false" Precision="19" Scale="3" />
+          <Property Name="FRETSALES" Type="Decimal" Nullable="false" Precision="19" Scale="3" />
+          <Property Name="PONUMBER" Type="String" Nullable="false" MaxLength="22" FixedLength="true" Unicode="false" />
+          <Property Name="FAMTTRAN" Type="Decimal" Nullable="false" Precision="19" Scale="3" />
+          <Property Name="SHINUMBER" Type="String" Nullable="false" MaxLength="22" FixedLength="true" Unicode="false" />
+          <Property Name="NAMECUST" Type="String" Nullable="false" MaxLength="60" FixedLength="true" Unicode="false" />
+          <Property Name="ITEMDESC" Type="String" Nullable="false" MaxLength="60" FixedLength="true" Unicode="false" />
+        </EntityType>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="CRMXModelStoreContainer" CdmEntityContainer="CRMXEntities">
+          <EntitySetMapping Name="GridLayouts">
+            <EntityTypeMapping TypeName="CRMXModel.GridLayout">
+              <MappingFragment StoreEntitySet="GridLayout">
+                <ScalarProperty Name="LayoutName" ColumnName="LayoutName" />
+                <ScalarProperty Name="Layout" ColumnName="Layout" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="UserId" ColumnName="UserId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="vUserPers">
+            <EntityTypeMapping TypeName="CRMXModel.vUserPer">
+              <MappingFragment StoreEntitySet="vUserPer">
+                <ScalarProperty Name="user_per_880" ColumnName="user_per_880" />
+                <ScalarProperty Name="user_per_600" ColumnName="user_per_600" />
+                <ScalarProperty Name="user_IC_DefaultPage" ColumnName="user_IC_DefaultPage" />
+                <ScalarProperty Name="user_IC_SN" ColumnName="user_IC_SN" />
+                <ScalarProperty Name="user_IC_ShowCost" ColumnName="user_IC_ShowCost" />
+                <ScalarProperty Name="user_IC_Price" ColumnName="user_IC_Price" />
+                <ScalarProperty Name="user_IC_Items" ColumnName="user_IC_Items" />
+                <ScalarProperty Name="user_IC_Inquiry" ColumnName="user_IC_Inquiry" />
+                <ScalarProperty Name="user_IC_History" ColumnName="user_IC_History" />
+                <ScalarProperty Name="User_Per_Admin" ColumnName="User_Per_Admin" />
+                <ScalarProperty Name="User_Logon" ColumnName="User_Logon" />
+                <ScalarProperty Name="User_LastName" ColumnName="User_LastName" />
+                <ScalarProperty Name="User_FirstName" ColumnName="User_FirstName" />
+                <ScalarProperty Name="User_UserId" ColumnName="User_UserId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="vCSOPTFHs">
+            <EntityTypeMapping TypeName="CRMXModel.vCSOPTFH">
+              <MappingFragment StoreEntitySet="vCSOPTFH">
+                <ScalarProperty Name="VALIDATE" ColumnName="VALIDATE" />
+                <ScalarProperty Name="DECIMALS" ColumnName="DECIMALS" />
+                <ScalarProperty Name="LENGTH" ColumnName="LENGTH" />
+                <ScalarProperty Name="TYPE" ColumnName="TYPE" />
+                <ScalarProperty Name="FDESC" ColumnName="FDESC" />
+                <ScalarProperty Name="OPTFIELD" ColumnName="OPTFIELD" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <FunctionImportMapping FunctionImportName="prUpdateOptValue" FunctionName="CRMXModel.Store.prUpdateOptValue" />
+          <EntitySetMapping Name="UserGridLayouts">
+            <EntityTypeMapping TypeName="CRMXModel.UserGridLayout">
+              <MappingFragment StoreEntitySet="UserGridLayout">
+                <ScalarProperty Name="Active" ColumnName="Active" />
+                <ScalarProperty Name="LayoutData" ColumnName="LayoutData" />
+                <ScalarProperty Name="LayoutName" ColumnName="LayoutName" />
+                <ScalarProperty Name="GridName" ColumnName="GridName" />
+                <ScalarProperty Name="UserId" ColumnName="UserId" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="vSNs">
+            <EntityTypeMapping TypeName="CRMXModel.vSN">
+              <MappingFragment StoreEntitySet="vSN">
+                <ScalarProperty Name="C880USDDATE" ColumnName="880USDDATE" />
+                <ScalarProperty Name="C880USD002" ColumnName="880USD002" />
+                <ScalarProperty Name="C880USD070" ColumnName="880USD070" />
+                <ScalarProperty Name="C880USD060" ColumnName="880USD060" />
+                <ScalarProperty Name="C880USD050" ColumnName="880USD050" />
+                <ScalarProperty Name="C880USD040" ColumnName="880USD040" />
+                <ScalarProperty Name="C880USD030" ColumnName="880USD030" />
+                <ScalarProperty Name="C880USD020" ColumnName="880USD020" />
+                <ScalarProperty Name="C880USD010" ColumnName="880USD010" />
+                <ScalarProperty Name="C880USD005" ColumnName="880USD005" />
+                <ScalarProperty Name="C124AMPSGEN" ColumnName="124AMPSGEN" />
+                <ScalarProperty Name="C952CUSTSECT2" ColumnName="952CUSTSECT2" />
+                <ScalarProperty Name="C951CUSTSECT1" ColumnName="951CUSTSECT1" />
+                <ScalarProperty Name="C301COOSERIAL" ColumnName="301COOSERIAL" />
+                <ScalarProperty Name="C300COUNTRYOR" ColumnName="300COUNTRYOR" />
+                <ScalarProperty Name="C221ALTMODEL" ColumnName="221ALTMODEL" />
+                <ScalarProperty Name="C199WEIGHITEM" ColumnName="199WEIGHITEM" />
+                <ScalarProperty Name="C193WEIGHTKG" ColumnName="193WEIGHTKG" />
+                <ScalarProperty Name="SALESPER1" ColumnName="SALESPER1" />
+                <ScalarProperty Name="C760PORTDEST" ColumnName="760PORTDEST" />
+                <ScalarProperty Name="C750EXPORTBL" ColumnName="750EXPORTBL" />
+                <ScalarProperty Name="C748VOYAGE" ColumnName="748VOYAGE" />
+                <ScalarProperty Name="C744VESSELNAM" ColumnName="744VESSELNAM" />
+                <ScalarProperty Name="C740OCEANCARR" ColumnName="740OCEANCARR" />
+                <ScalarProperty Name="C735SEALNO" ColumnName="735SEALNO" />
+                <ScalarProperty Name="C730CONTAINER" ColumnName="730CONTAINER" />
+                <ScalarProperty Name="C720PORTLOAD" ColumnName="720PORTLOAD" />
+                <ScalarProperty Name="C716IT7512OUT" ColumnName="716IT7512OUT" />
+                <ScalarProperty Name="C713TE7512" ColumnName="713TE7512" />
+                <ScalarProperty Name="C710IE7512" ColumnName="710IE7512" />
+                <ScalarProperty Name="C700BOOKINGNO" ColumnName="700BOOKINGNO" />
+                <ScalarProperty Name="C670IMPORTENT" ColumnName="670IMPORTENT" />
+                <ScalarProperty Name="C665IT7512IN" ColumnName="665IT7512IN" />
+                <ScalarProperty Name="C660CF214" ColumnName="660CF214" />
+                <ScalarProperty Name="C650PORTORIG" ColumnName="650PORTORIG" />
+                <ScalarProperty Name="C648VOYAGE" ColumnName="648VOYAGE" />
+                <ScalarProperty Name="C645VESSEL3" ColumnName="645VESSEL3" />
+                <ScalarProperty Name="C645VESSEL2" ColumnName="645VESSEL2" />
+                <ScalarProperty Name="C645VESSEL" ColumnName="645VESSEL" />
+                <ScalarProperty Name="C640CARRIER3" ColumnName="640CARRIER3" />
+                <ScalarProperty Name="ASSETCOST" ColumnName="ASSETCOST" />
+                <ScalarProperty Name="CNTLACCT" ColumnName="CNTLACCT" />
+                <ScalarProperty Name="CATEGORY" ColumnName="CATEGORY" />
+                <ScalarProperty Name="LISTPRICE" ColumnName="LISTPRICE" />
+                <ScalarProperty Name="SO_ORDDATE" ColumnName="SO_ORDDATE" />
+                <ScalarProperty Name="SO_PONUMBER" ColumnName="SO_PONUMBER" />
+                <ScalarProperty Name="SO_SHPNAME" ColumnName="SO_SHPNAME" />
+                <ScalarProperty Name="SO_BILNAME" ColumnName="SO_BILNAME" />
+                <ScalarProperty Name="SO_CUSTOMER" ColumnName="SO_CUSTOMER" />
+                <ScalarProperty Name="SO_ORDNUMBER" ColumnName="SO_ORDNUMBER" />
+                <ScalarProperty Name="SO_LINENUM" ColumnName="SO_LINENUM" />
+                <ScalarProperty Name="SO_ORDUNIQ" ColumnName="SO_ORDUNIQ" />
+                <ScalarProperty Name="PO_INVDATE" ColumnName="PO_INVDATE" />
+                <ScalarProperty Name="PO_INVNUMBER" ColumnName="PO_INVNUMBER" />
+                <ScalarProperty Name="PO_VDNAME" ColumnName="PO_VDNAME" />
+                <ScalarProperty Name="PO_VDCODE" ColumnName="PO_VDCODE" />
+                <ScalarProperty Name="PO_PONUMBER" ColumnName="PO_PONUMBER" />
+                <ScalarProperty Name="PO_RCPNUMBER" ColumnName="PO_RCPNUMBER" />
+                <ScalarProperty Name="PO_TRANSDATE" ColumnName="PO_TRANSDATE" />
+                <ScalarProperty Name="PO_DOCNUM" ColumnName="PO_DOCNUM" />
+                <ScalarProperty Name="STATUS" ColumnName="STATUS" />
+                <ScalarProperty Name="STATUS_DESC" ColumnName="STATUS_DESC" />
+                <ScalarProperty Name="RESVFORORD_DESC" ColumnName="RESVFORORD_DESC" />
+                <ScalarProperty Name="RESVFORORD" ColumnName="RESVFORORD" />
+                <ScalarProperty Name="WATSORT" ColumnName="WATSORT" />
+                <ScalarProperty Name="CATSORT" ColumnName="CATSORT" />
+                <ScalarProperty Name="DATESORT" ColumnName="DATESORT" />
+                <ScalarProperty Name="ST" ColumnName="ST" />
+                <ScalarProperty Name="LOCATION" ColumnName="LOCATION" />
+                <ScalarProperty Name="ARRIVALDATE" ColumnName="ARRIVALDATE" />
+                <ScalarProperty Name="C900NOTES" ColumnName="900NOTES" />
+                <ScalarProperty Name="C850TRESVNOTE" ColumnName="850TRESVNOTE" />
+                <ScalarProperty Name="C810TRESVSLP" ColumnName="810TRESVSLP" />
+                <ScalarProperty Name="C800TRESVDATE" ColumnName="800TRESVDATE" />
+                <ScalarProperty Name="C640CARRIER2" ColumnName="640CARRIER2" />
+                <ScalarProperty Name="C640CARRIER" ColumnName="640CARRIER" />
+                <ScalarProperty Name="C630ISF" ColumnName="630ISF" />
+                <ScalarProperty Name="C620BL" ColumnName="620BL" />
+                <ScalarProperty Name="C610CONTAINER" ColumnName="610CONTAINER" />
+                <ScalarProperty Name="C608DOCSDATE" ColumnName="608DOCSDATE" />
+                <ScalarProperty Name="C605FACTRYREF" ColumnName="605FACTRYREF" />
+                <ScalarProperty Name="C600DESPATCH" ColumnName="600DESPATCH" />
+                <ScalarProperty Name="C550VENDORVIN" ColumnName="550VENDORVIN" />
+                <ScalarProperty Name="C501OPTION5" ColumnName="501OPTION5" />
+                <ScalarProperty Name="C501OPTION4" ColumnName="501OPTION4" />
+                <ScalarProperty Name="C501OPTION3" ColumnName="501OPTION3" />
+                <ScalarProperty Name="C501OPTION2" ColumnName="501OPTION2" />
+                <ScalarProperty Name="C501OPTION1" ColumnName="501OPTION1" />
+                <ScalarProperty Name="C450STARTUP" ColumnName="450STARTUP" />
+                <ScalarProperty Name="C440PICKUP" ColumnName="440PICKUP" />
+                <ScalarProperty Name="C430OKTOSHIP" ColumnName="430OKTOSHIP" />
+                <ScalarProperty Name="C420INSHOP" ColumnName="420INSHOP" />
+                <ScalarProperty Name="C410ETAPORT" ColumnName="410ETAPORT" />
+                <ScalarProperty Name="C400PRODPROMI" ColumnName="400PRODPROMI" />
+                <ScalarProperty Name="C280NEL1" ColumnName="280NEL1" />
+                <ScalarProperty Name="C270FUELTANK" ColumnName="270FUELTANK" />
+                <ScalarProperty Name="C260EPA" ColumnName="260EPA" />
+                <ScalarProperty Name="C250STONEGUAR" ColumnName="250STONEGUAR" />
+                <ScalarProperty Name="C240SILENCER" ColumnName="240SILENCER" />
+                <ScalarProperty Name="C230BATTERY" ColumnName="230BATTERY" />
+                <ScalarProperty Name="C220ALTERNATO" ColumnName="220ALTERNATO" />
+                <ScalarProperty Name="C210LIFTPOINT" ColumnName="210LIFTPOINT" />
+                <ScalarProperty Name="C200CTRLPANEL" ColumnName="200CTRLPANEL" />
+                <ScalarProperty Name="C198VOLUME" ColumnName="198VOLUME" />
+                <ScalarProperty Name="C197HEIGHT" ColumnName="197HEIGHT" />
+                <ScalarProperty Name="C196WIDTH" ColumnName="196WIDTH" />
+                <ScalarProperty Name="C195LENGTHDEP" ColumnName="195LENGTHDEP" />
+                <ScalarProperty Name="C192HEIGHT" ColumnName="192HEIGHT" />
+                <ScalarProperty Name="C191WIDTH" ColumnName="191WIDTH" />
+                <ScalarProperty Name="C190LENGTHDEP" ColumnName="190LENGTHDEP" />
+                <ScalarProperty Name="C185ENGINEBR" ColumnName="185ENGINEBR" />
+                <ScalarProperty Name="C180ENGINE" ColumnName="180ENGINE" />
+                <ScalarProperty Name="C170PRODPROMI" ColumnName="170PRODPROMI" />
+                <ScalarProperty Name="C160ENCLTYPE" ColumnName="160ENCLTYPE" />
+                <ScalarProperty Name="C150ENCLOSURE" ColumnName="150ENCLOSURE" />
+                <ScalarProperty Name="C149KVA" ColumnName="149KVA" />
+                <ScalarProperty Name="C146KVA" ColumnName="146KVA" />
+                <ScalarProperty Name="C143KVA" ColumnName="143KVA" />
+                <ScalarProperty Name="C140KVA" ColumnName="140KVA" />
+                <ScalarProperty Name="C139KW" ColumnName="139KW" />
+                <ScalarProperty Name="C136KW" ColumnName="136KW" />
+                <ScalarProperty Name="C133KW" ColumnName="133KW" />
+                <ScalarProperty Name="C130KW" ColumnName="130KW" />
+                <ScalarProperty Name="C123AMPS" ColumnName="123AMPS" />
+                <ScalarProperty Name="C120PHASE" ColumnName="120PHASE" />
+                <ScalarProperty Name="C110VOLTAGE" ColumnName="110VOLTAGE" />
+                <ScalarProperty Name="C100FREQUENCY" ColumnName="100FREQUENCY" />
+                <ScalarProperty Name="C030ALTSN" ColumnName="030ALTSN" />
+                <ScalarProperty Name="C020ENGINESN" ColumnName="020ENGINESN" />
+                <ScalarProperty Name="C010FGWSN" ColumnName="010FGWSN" />
+                <ScalarProperty Name="SERIALNUM" ColumnName="SERIALNUM" />
+                <ScalarProperty Name="ITEMNO" ColumnName="ITEMNO" />
+                <ScalarProperty Name="SERIALNUMF" ColumnName="SERIALNUMF" />
+                <ScalarProperty Name="ITEMNUM" ColumnName="ITEMNUM" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="vORDERS">
+            <EntityTypeMapping TypeName="CRMXModel.vORDER">
+              <MappingFragment StoreEntitySet="vORDERS">
+                <ScalarProperty Name="INVDATE" ColumnName="INVDATE" />
+                <ScalarProperty Name="SHIDATE" ColumnName="SHIDATE" />
+                <ScalarProperty Name="ORDDATE" ColumnName="ORDDATE" />
+                <ScalarProperty Name="INVNUMBER" ColumnName="INVNUMBER" />
+                <ScalarProperty Name="SHINUMBER" ColumnName="SHINUMBER" />
+                <ScalarProperty Name="COMPANYID" ColumnName="COMPANYID" />
+                <ScalarProperty Name="OPPOID" ColumnName="OPPOID" />
+                <ScalarProperty Name="SALESPER5" ColumnName="SALESPER5" />
+                <ScalarProperty Name="SALESPER4" ColumnName="SALESPER4" />
+                <ScalarProperty Name="SALESPER3" ColumnName="SALESPER3" />
+                <ScalarProperty Name="SALESPER2" ColumnName="SALESPER2" />
+                <ScalarProperty Name="SALESPER1" ColumnName="SALESPER1" />
+                <ScalarProperty Name="DESC" ColumnName="DESC" />
+                <ScalarProperty Name="OETYPE" ColumnName="OETYPE" />
+                <ScalarProperty Name="PONUMBER" ColumnName="PONUMBER" />
+                <ScalarProperty Name="SHPCONTACT" ColumnName="SHPCONTACT" />
+                <ScalarProperty Name="SHPPHONE" ColumnName="SHPPHONE" />
+                <ScalarProperty Name="SHPNAME" ColumnName="SHPNAME" />
+                <ScalarProperty Name="SHIPTO" ColumnName="SHIPTO" />
+                <ScalarProperty Name="BILCONTACT" ColumnName="BILCONTACT" />
+                <ScalarProperty Name="BILPHONE" ColumnName="BILPHONE" />
+                <ScalarProperty Name="BILNAME" ColumnName="BILNAME" />
+                <ScalarProperty Name="CUSTGROUP" ColumnName="CUSTGROUP" />
+                <ScalarProperty Name="CUSTOMER" ColumnName="CUSTOMER" />
+                <ScalarProperty Name="ORDNUMBER" ColumnName="ORDNUMBER" />
+                <ScalarProperty Name="ORDUNIQ" ColumnName="ORDUNIQ" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="vOESHPDETAILS">
+            <EntityTypeMapping TypeName="CRMXModel.vOESHPDETAIL">
+              <MappingFragment StoreEntitySet="vOESHPDETAILS">
+                <ScalarProperty Name="ITEMDESC" ColumnName="ITEMDESC" />
+                <ScalarProperty Name="NAMECUST" ColumnName="NAMECUST" />
+                <ScalarProperty Name="SHINUMBER" ColumnName="SHINUMBER" />
+                <ScalarProperty Name="FAMTTRAN" ColumnName="FAMTTRAN" />
+                <ScalarProperty Name="PONUMBER" ColumnName="PONUMBER" />
+                <ScalarProperty Name="FRETSALES" ColumnName="FRETSALES" />
+                <ScalarProperty Name="FAMTSALES" ColumnName="FAMTSALES" />
+                <ScalarProperty Name="FCSTSALES" ColumnName="FCSTSALES" />
+                <ScalarProperty Name="SCURN" ColumnName="SCURN" />
+                <ScalarProperty Name="QTYSOLD" ColumnName="QTYSOLD" />
+                <ScalarProperty Name="CATEGORY" ColumnName="CATEGORY" />
+                <ScalarProperty Name="TRANLOC" ColumnName="TRANLOC" />
+                <ScalarProperty Name="TERRITORY" ColumnName="TERRITORY" />
+                <ScalarProperty Name="SALESPER" ColumnName="SALESPER" />
+                <ScalarProperty Name="SHIPDATE" ColumnName="SHIPDATE" />
+                <ScalarProperty Name="ORDNUMBER" ColumnName="ORDNUMBER" />
+                <ScalarProperty Name="ORDDATE" ColumnName="ORDDATE" />
+                <ScalarProperty Name="TRANTYPE" ColumnName="TRANTYPE" />
+                <ScalarProperty Name="TRANNUM" ColumnName="TRANNUM" />
+                <ScalarProperty Name="LINENO" ColumnName="LINENO" />
+                <ScalarProperty Name="TRANDATE" ColumnName="TRANDATE" />
+                <ScalarProperty Name="PR" ColumnName="PR" />
+                <ScalarProperty Name="YR" ColumnName="YR" />
+                <ScalarProperty Name="ITEM" ColumnName="ITEM" />
+                <ScalarProperty Name="CUSTOMER" ColumnName="CUSTOMER" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>
